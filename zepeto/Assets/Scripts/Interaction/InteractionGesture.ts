@@ -77,9 +77,9 @@ export default class InteractionGesture extends ZepetoScriptBehaviour {
             const distance = Vector3.op_Subtraction(bone.position, this._localCharacter.transform.position);    // 엉덩이의 위치와 캐릭터의 위치의 차이
             const newPos: Vector3 = Vector3.op_Subtraction(this.transform.position, distance);  // Dock Point의 위치와 distance의 차이
 
-            console.log(this.transform.position);
-            console.log(newPos);
-            console.log(this._localCharacter.transform.position)
+            // console.log(this.transform.position);
+            // console.log(newPos);
+            // console.log(this._localCharacter.transform.position)
 
             this._playerGesturePos = newPos;    // 제스처를 취할 위치를 새로 갱신
             this._localCharacter.transform.position = this._playerGesturePos;   // 캐릭터의 위치를 새로 갱신

@@ -133,12 +133,21 @@ export default class ClientStarter extends ZepetoScriptBehaviour {
         const position = this.ParseVector3(player.transform.position);
         
         const zepetoPlayer = ZepetoPlayers.instance.GetPlayer(sessionId);
+        
+        // 캐릭터 이동
         zepetoPlayer.character.MoveToPosition(position);
 
-        // CharacterState가 Jump인 경우, 실제 캐릭터도 점프하도록
-        if (player.state === CharacterState.JumpIdle || player.state === CharacterState.JumpMove) {
-            zepetoPlayer.character.Jump();
+        // 캐릭터 점프
+        if (player.state === CharacterState.Jump) {
+            if (zepetoPlayer.character.CurrentState !== CharacterState.Jump) {
+                zepetoPlayer.character.Jump();
+            }
         }
+
+        // // CharacterState가 Jump인 경우, 실제 캐릭터도 점프하도록
+        // if (player.state === CharacterState.JumpIdle || player.state === CharacterState.JumpMove) {
+        //     zepetoPlayer.character.Jump();
+        // }
     }
 
     private SendState(state: CharacterState) {
