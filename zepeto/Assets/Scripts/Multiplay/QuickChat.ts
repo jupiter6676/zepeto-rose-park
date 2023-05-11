@@ -9,9 +9,9 @@ export default class QuickChat extends ZepetoScriptBehaviour {
     Start() {
         // 현재 월드의 퀵채팅 리스트 가져오기
         ZepetoWorldContent.GetQuickMessageList(quickMessageList => {
-            quickMessageList.forEach((quickMessage: QuickMessage, index: number, array: QuickMessage[]) => {
-                console.log(`id = ${quickMessage.id}, message = ${quickMessage.message}`);
-            });
+            // quickMessageList.forEach((quickMessage: QuickMessage, index: number, array: QuickMessage[]) => {
+            //     console.log(`id = ${quickMessage.id}, message = ${quickMessage.message}`);
+            // });
         }, err => {
             console.log(`QuickMessage Error: ${err}`);
         });
